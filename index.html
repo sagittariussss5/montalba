@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francis Montalba | Scanned Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-yellow: #FFD60A;
+            --dark-blue: #001F54;
+            --accent-gold: #FFC300;
+            --emergency-red: #D90429;
+            --text-main: #000814;
+        }
+
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-yellow);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-main);
+            padding: 15px;
+        }
+
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--accent-gold) 30%, var(--dark-blue) 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 40px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 31, 84, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--dark-blue);
+            padding: 5px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 30px;
+            margin: 15px 0 5px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            letter-spacing: -1px;
+        }
+
+        .position {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.7;
+        }
+
+        .company {
+            font-size: 15px;
+            font-weight: 600;
+            color: #444;
+            line-height: 1.4;
+            margin: 8px auto 25px;
+        }
+
+        .info-stack { text-align: left; margin-bottom: 25px; }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 31, 84, 0.04);
+            padding: 16px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-box i {
+            font-size: 22px;
+            color: var(--accent-gold);
+            background: var(--dark-blue);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+
+        .info-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            line-height: 1.4;
+        }
+
+        .primary-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            height: 60px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-save { background: var(--dark-blue); color: var(--primary-yellow); }
+        .btn-call { background: white; color: var(--dark-blue); border: 2.5px solid var(--dark-blue); }
+
+        .emergency-zone {
+            background: #FFF0F0;
+            border: 2px solid var(--emergency-red);
+            border-radius: 28px;
+            padding: 20px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .ice-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .ice-header i {
+            font-size: 24px;
+            color: var(--emergency-red);
+            background: white;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--emergency-red);
+        }
+
+        .ice-details { flex-grow: 1; }
+        .ice-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--emergency-red); display: block; }
+        .ice-name { font-size: 18px; font-weight: 700; color: #000; display: block; }
+        .ice-number { font-size: 15px; font-weight: 600; color: #444; display: block; margin-top: 2px; }
+
+        .btn-emergency-call {
+            background: var(--emergency-red);
+            color: white;
+            width: 100%;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(217, 4, 41, 0.25);
+        }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .btn-emergency-call:hover { background: #B20322; }
+    </style>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+
+<div class="card">
+    <div class="profile-header">
+        <img src="Montalba.png" class="photo" alt="Francis Montalba">
+        <h2>Francis Montalba</h2>
+        <div class="position">PM Operator</div>
+        <div class="company">Golden Continental Port Terminal Services Inc.</div>
+    </div>
+
+    <div class="info-stack">
+        <div class="info-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <div class="info-text">Zone 8 Taparak, Bugo, CDO, Misamis Oriental 9001, Philippines</div>
+        </div>
+        <div class="info-box">
+            <i class="fa-solid fa-phone-volume"></i>
+            <div class="info-text">0953-385-4250</div>
+        </div>
+    </div>
+
+    <div class="primary-actions">
+        <button class="btn btn-save" id="saveBtn">
+            <i class="fa-solid fa-user-plus"></i> Save
+        </button>
+        <a href="tel:09533854250" class="btn btn-call">
+            <i class="fa-solid fa-phone"></i> Call
+        </a>
+    </div>
+
+    <div class="emergency-zone">
+        <div class="ice-header">
+            <i class="fa-solid fa-kit-medical"></i>
+            <div class="ice-details">
+                <span class="ice-label">Emergency Contact (ICE)</span>
+                <span class="ice-name">Jhaycel Manatad</span>
+                <span class="ice-number">0905-817-6187</span>
+            </div>
+        </div>
+        <a href="tel:09058176187" class="btn btn-emergency-call">
+            <i class="fa-solid fa-phone-flip"></i> Call Emergency Now
+        </a>
+    </div>
+</div>
+
+<script>
+    const contact = {
+        firstName: "Francis",
+        lastName: "Montalba",
+        org: "Golden Continental Port Terminal Services Inc.",
+        title: "PM Operator",
+        phone: "09533854250",
+        city: "Zone 8 Taparak, Bugo, CDO",
+        region: "Misamis Oriental 9001",
+        country: "Philippines",
+        photoUrl: "Montalba.png",
+        iceName: "Jhaycel Manatad",
+        icePhone: "09058176187"
+    };
+
+    document.getElementById("saveBtn").onclick = async function() {
+        try {
+            const response = await fetch(contact.photoUrl);
+            const blob = await response.blob();
+            const reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onloadend = () => downloadVCard(contact, reader.result.split(',')[1]);
+        } catch {
+            downloadVCard(contact, null);
+        }
+    };
+
+    function downloadVCard(contact, photo) {
+        const lines = [
+            "BEGIN:VCARD", "VERSION:3.0",
+            `N:${contact.lastName};${contact.firstName};;;`,
+            `FN:${contact.firstName} ${contact.lastName}`,
+            `ORG:${contact.org}`, `TITLE:${contact.title}`,
+            `TEL;TYPE=CELL,VOICE:${contact.phone}`,
+            `ADR;TYPE=HOME:;;;${contact.city};${contact.region};;${contact.country}`,
+            `NOTE:ICE: ${contact.iceName} - ${contact.icePhone}`
+        ];
+        if (photo) lines.push(`PHOTO;TYPE=PNG;ENCODING=b:${photo}`);
+        lines.push("END:VCARD");
+
+        const blob = new Blob([lines.join("\n")], { type: "text/vcard" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${contact.firstName}_Profile.vcf`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+</script>
+</body>
+</html>
